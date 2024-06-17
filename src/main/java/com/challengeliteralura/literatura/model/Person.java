@@ -71,11 +71,12 @@ public class Person {
         String bookList = books.stream()
                 .map(Book::getTitle)
                 .collect(Collectors.joining(", "));
-        return "----- Autor -----\n" +
+        return
                 "Nombre: " + this.name +"\n"+
                 "Año nacimiento: " + this.birth_year +"\n"+
                 "Año fallecimiento: " + this.death_year +"\n"+
-                "libros: " + bookList;
+                "libros: " + bookList+
+                "\n\n***************************************************\n";
 
     }
 }

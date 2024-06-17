@@ -10,8 +10,10 @@ import org.hibernate.boot.query.HbmResultSetMappingDescriptor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
+import java.util.Scanner;
 import java.util.stream.Collectors;
 
 @Service
@@ -52,6 +54,39 @@ public class BookService {
         return bookRepository.findAll();
     }
 
+    public void showBookForLanguage(){
+        List<String> validLanguages = Arrays.asList("es","en","fr","pt");
+        var menu = """
+                    es - español
+                    en - ingles
+                    fr - francia
+                    pt - portugal
+                """;
+        System.out.println(menu);
+        System.out.println("Ingrese una opcion: ");
+        Scanner leer = new Scanner(System.in);
+        String datoIngresado = leer.nextLine().trim().toLowerCase();
+        if(!validLanguages.contains(datoIngresado)){
+            System.out.println("Opción de idioma invalida. Por favor, elija una de las opciones validas.");
+            return;
+        }
+        try{
+            List<Book> books = bookRepository.findByLanguagesContains(datoIngresado);
+            if(books.isEmpty()){
+                System.out.print("\n\n***************************************************\n\n");
+                System.out.print("No se encontraron libros en el idioma: "+datoIngresado);
+                System.out.print("\n\n***************************************************\n\n");
+            }else{
+                System.out.println("***************** Libros segun el idioma ******************");
+                books.forEach(System.out::println);
+            }
+        }catch (Exception e){
+            System.out.print("\n\n***************************************************\n\n");
+            System.err.print("Ocurrió un error al buscar los libros: " + e.getMessage());
+            System.out.print("\n\n***************************************************\n\n");
+        }
+    }
+
     private DatoBook getResult(String title,String json){
         try{
             GutenbergResponse result = conversor.obtenerDatos(json, GutenbergResponse.class);
@@ -75,4 +110,5 @@ public class BookService {
                 .collect(Collectors.toList());
         return authorList;
     }
+
 }

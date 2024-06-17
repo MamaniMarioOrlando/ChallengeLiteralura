@@ -86,7 +86,5 @@ public class Book {
                 "Lenguaje= " + languages + "\n" +
                 "Numero de descargas= " + this.download_count + "\n" +
                 "\n***************************************************\n";
-
-
     }
 }
