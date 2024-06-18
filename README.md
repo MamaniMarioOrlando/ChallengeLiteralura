@@ -19,11 +19,11 @@
 
 #Imagenes de la ejecucion del programa 
 
-![Ejecucion del programa](imagenesDelProyecto%2librolura00.png)
+![Ejecucion del programa](ImagenesDelProyecto/librolura00.png)
 
-![Ejecucion del programa](imagenesDelProyecto%2librolura01.png)
+![Ejecucion del programa](ImagenesDelProyecto/librolura01.png)
 
-![Ejecucion del programa](imagenesDelProyecto%2librolura02.png)
+![Ejecucion del programa](ImagenesDelProyecto/librolura02.png)
 
 ## Configuración
 
