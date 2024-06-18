@@ -17,7 +17,7 @@
 - **Hibernate**
 - **PostgreSQL**
 
-##Imagenes de la ejecucion del programa 
+## Imagenes de la ejecucion del programa 
 
 ![Ejecucion del programa](ImagenesDelProyecto/librolura00.png)
 
